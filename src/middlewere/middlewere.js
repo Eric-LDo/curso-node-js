@@ -3,8 +3,10 @@ exports.meuMiddlewere = (req, res, next) =>{
     next();
 }
 exports.CheckCsrfError = (err, req, res, next) =>{
-    if(err && err.code === 'EBADCSRFTOKEN'){
-        return res.render('404.ejs')
+    if(err && err.code === 'EBADCSRFTOKEN' && req.csrfToken) {
+        return res.render('404.ejs', {
+            error: err
+        })
     }
     next();
 }

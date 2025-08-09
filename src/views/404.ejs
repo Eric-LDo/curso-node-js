@@ -1,6 +1,25 @@
 <%- include('./includes/HeaderIncludes') %>
-<section class='bodyError'>
-    <h1>Erro 404</h1>
-    <p>Página não encontrada</p>
-</section>
+<%- include('./includes/nav') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-8 my-5">
+                <h1 class="display-1 text-center"> Erro 404!</h1>
+                <p class="text-center lead">A página que você está procurando não foi encontrada.
+                    <% if (error) { %>
+                        <br>
+                        <strong>Detalhes do erro:</strong> <%= error.message %>
+                    <% } %>
+                </p>
+                
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+    </div>
+   
+    
 <%- include('./includes/footerIncludes') %>
