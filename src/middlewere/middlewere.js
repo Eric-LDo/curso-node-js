@@ -1,5 +1,8 @@
 exports.meuMiddlewere = (req, res, next) =>{
-    res.locals.umaVariavelLocal = 'Este é o valor da variável local';
+    console.log('Sessão:', req.session.user); // Veja se está vindo o usuário
+    res.locals.errors = req.flash('errors');
+    res.locals.success = req.flash('success');
+    res.locals.user =  req.session.user;
     next();
 }
 exports.CheckCsrfError = (err, req, res, next) =>{

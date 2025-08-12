@@ -1,6 +1,6 @@
 require('dotenv').config({path: './.env'})
 const express= require('express')
-const { stringify } = require('querystring')
+
 const mongoose = require('mongoose')
 const app = express()
 const routes = require('./routes')
@@ -48,6 +48,7 @@ mongoose.connect(process.env.URL, {
 app.on('pronto', ()=>{
     app.listen(3000, ()=>{
     console.log('Acessar http://localhost:3000')
+    console.log('Acessar http://localhost:3000/login')
     console.log('Sevidor executando na porta 3000')
 })
 })
