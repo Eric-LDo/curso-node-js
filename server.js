@@ -49,6 +49,7 @@ app.on('pronto', ()=>{
     app.listen(3000, ()=>{
     console.log('Acessar http://localhost:3000')
     console.log('Acessar http://localhost:3000/login')
+    console.log('Acessar http://localhost:3000/contato')
     console.log('Sevidor executando na porta 3000')
 })
 })
