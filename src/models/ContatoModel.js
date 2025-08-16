@@ -38,6 +38,33 @@ class Contato {
         email: this.body.email
         };
     }
+
+    async edit(id){
+        if(typeof id !== 'string') return;
+        this.valida();
+        if(this.errors.length > 0) return;
+        this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {new: true});
+    }
+    // Métodos estaticos
+    static async findById(id){
+        if(typeof id !== 'string') return;
+       const user = await ContatoModel.findById(id)
+       return user
+    }
+
+    static async findAll(){
+        const users = await ContatoModel.find()
+            .sort({Data: -1});
+        return users;
+    }
+    static async delete(id){
+        if(typeof id !== 'string'){
+            console.log('id invalido')
+            return;
+        } ;
+        const contato = await ContatoModel.findOneAndDelete({_id: id});
+        return contato;
+    }
 }
 
 module.exports = {ContatoModel, Contato};
