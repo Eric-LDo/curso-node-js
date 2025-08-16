@@ -36,10 +36,8 @@ app.set('view engine', 'ejs')
 app.use(routes) 
 
 
-mongoose.connect(process.env.URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true  
-}).then(()=>{
+mongoose.connect(process.env.URL)
+.then(()=>{
     console.log('Conectado ao MongoDB')
     app.emit('pronto')
 }).catch((err)=>{
